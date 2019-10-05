@@ -1,0 +1,44 @@
+/*General overriding*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.nav a {
+    color: #ffffff;
+}
+
+.nav a:hover {
+    -webkit-box-shadow: inset 0px 0px 0px 3px #ffffff;
+    -moz-box-shadow: inset 0px 0px 0px 3px #ffffff;
+    box-shadow: inset 0px 0px 0px 3px #ffffff;
+}
+
+/*Bootstrap overriding*/
+.container-fluid {
+    padding: 0;
+}
+
+/*Custom classes*/
+.text-format {
+    font-size: 1em;
+    color: #6f6f6f;
+    font-family: "Helvetica";
+}
+
+.text-format-large {
+    font-size: 2em;
+    color: #6f6f6f;
+    font-family: "Helvetica";
+}
+
+.footer {
+    background: #007BFF;
+    padding: 8px;
+    color: #ffffff;
+    text-align: center;
+    bottom: 0px;
+    position: fixed;
+    width: 100%;
+}
