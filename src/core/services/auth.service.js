@@ -1,44 +1,51 @@
-const host = 'http://localhost:8080/'
+const host = 'http://localhost:8080/';
 
-async function register(name, email, password) {
-    const response = await fetch(host + 'auth/signup', {
+async function register(firstName, lastName, email, password, matchingPassword) {
+    const response = await fetch(host + 'api/user', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            name,
-            email,
-            password
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+            matchingPassword: matchingPassword
         })
-    })
+    });
 
     return await response.json()
+}
+
+function jsonToForm(params) {
+    let formData = new FormData();
+
+    for (let k in params) {
+        formData.append(k, params[k]);
+    }
+    return formData;
+}
+
+function basicAuthHeader(clientId, clientSecret) {
+    return 'Basic ' + btoa(clientId + ':' + clientSecret);
 }
 
 async function login(email, password) {
-    var params = {
-      grant_type: "password",
-      username: email,
-      password: password
-    }
-
-    var formData = new FormData();
-
-    for (var k in params) {
-      formData.append(k, params[k]);
-    }
-
     const response = await fetch(host + 'oauth/token', {
         method: 'POST',
         headers: {
-            'Authorization': 'Basic ' + btoa('testjwtclientid' + ':' + 'XY7kmzoNzl100').toString('base64'),
+            'Authorization': basicAuthHeader('testjwtclientid', 'XY7kmzoNzl100'),
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         },
-        body: formData
-    })
-
+        body: new URLSearchParams(jsonToForm({
+            grant_type: 'password',
+            username: email,
+            password: password,
+            client_id: 'testjwtclientid'
+        }))
+    });
     return await response.json()
 }
 
-export { register, login }
+export {register, login}
