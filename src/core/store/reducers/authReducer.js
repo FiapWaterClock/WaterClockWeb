@@ -7,7 +7,7 @@ export function registerReducer(state = {success: false}, action) {
         case REGISTER_ERROR:
             return Object.assign({}, state, {success: false, error: action.error})
         case LOGIN_SUCCESS:
-            return Object.assign({}, state, {success: false})
+            return Object.assign({}, state, {success: false, error: null})
         case REDIRECTED:
             return Object.assign({}, state, {success: false})
         default:
@@ -21,6 +21,9 @@ export function loginReducer(state = {success: false}, action) {
             return Object.assign({}, state, {success: true, error: null})
         case LOGIN_ERROR:
             return Object.assign({}, state, {success: false, error: action.error})
+        case REGISTER_SUCCESS:
+            return Object.assign({}, state, {success: false, error: null})
+        case REGISTER_ERROR:
         case REDIRECTED:
             return Object.assign({}, state, {success: false})
         default:

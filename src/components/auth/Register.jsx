@@ -39,7 +39,7 @@ class Register extends Component {
     render() {
         const registerError = this.props.registerError;
         let alert = "";
-        if(registerError) {
+        if(registerError && this.state.email) {
             alert = <div className="alert alert-danger" role="alert">{registerError.error_description}</div>
         }
 

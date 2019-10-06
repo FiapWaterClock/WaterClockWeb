@@ -35,7 +35,7 @@ class Login extends Component {
     render() {
         const loginError = this.props.loginError;
         let alert = "";
-        if(loginError) {
+        if(loginError && this.state.email) {
             alert = <div className="alert alert-danger" role="alert">{loginError.error_description}</div>
         }
         return (
