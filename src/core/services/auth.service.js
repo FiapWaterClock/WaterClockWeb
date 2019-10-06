@@ -1,4 +1,12 @@
-const host = 'http://localhost:8080/';
+function getHost() {
+    if (window.location.href == 'http://localhost:3000/') {
+        return 'http://localhost:8080/'
+    } else {
+        return 'https://fiapwaterclock.herokuapp.com/'
+    }
+}
+
+let host = getHost();
 
 async function register(firstName, lastName, email, password, matchingPassword) {
     const response = await fetch(host + 'api/user', {
