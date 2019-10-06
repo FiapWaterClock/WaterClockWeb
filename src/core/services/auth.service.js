@@ -17,15 +17,25 @@ async function register(name, email, password) {
 }
 
 async function login(email, password) {
-    const response = await fetch('http://client-id:client-secret@localhost:8080/oauth/token', {
+    var params = {
+      grant_type: "password",
+      username: email,
+      password: password
+    }
+
+    var formData = new FormData();
+
+    for (var k in params) {
+      formData.append(k, params[k]);
+    }
+
+    const response = await fetch(host + 'oauth/token', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Authorization': 'Basic ' + btoa('testjwtclientid' + ':' + 'XY7kmzoNzl100').toString('base64'),
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         },
-        body: JSON.stringify({
-            email,
-            password
-        })
+        body: formData
     })
 
     return await response.json()
