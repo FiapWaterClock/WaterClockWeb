@@ -6,13 +6,15 @@ body {
 }
 
 .nav a {
-    color: #ffffff;
+    color: white;
 }
 
 .nav a:hover {
-    -webkit-box-shadow: inset 0px 0px 0px 3px #ffffff;
-    -moz-box-shadow: inset 0px 0px 0px 3px #ffffff;
-    box-shadow: inset 0px 0px 0px 3px #ffffff;
+    color: aquamarine;
+}
+
+.nav a.active {
+    color: aquamarine;
 }
 
 /*Bootstrap overriding*/
@@ -23,22 +25,26 @@ body {
 /*Custom classes*/
 .text-format {
     font-size: 1em;
-    color: #6f6f6f;
-    font-family: "Helvetica";
+    color: darkgrey;
+    font-family: "Helvetica", sans-serif;
 }
 
 .text-format-large {
     font-size: 2em;
-    color: #6f6f6f;
-    font-family: "Helvetica";
+    color: darkgrey;
+    font-family: "Helvetica", sans-serif;
+}
+
+.navbar-inverse {
+    background: royalblue;
 }
 
 .footer {
-    background: #007BFF;
+    background: royalblue;
     padding: 8px;
-    color: #ffffff;
+    color: white;
     text-align: center;
-    bottom: 0px;
+    bottom: 0;
     position: fixed;
     width: 100%;
 }
