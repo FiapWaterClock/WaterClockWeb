@@ -27,12 +27,17 @@ class Login extends Component {
 
     componentWillReceiveProps(newProps) {
         if (newProps.loginSuccess) {
-            this.props.redirect()
-            this.props.history.push('/')
+            this.props.redirect();
+            this.props.history.push('/');
         }
     }
 
     render() {
+        const loginError = this.props.loginError;
+        let alert = "";
+        if(loginError) {
+            alert = <div className="alert alert-danger" role="alert">{loginError.error_description}</div>
+        }
         return (
             <div>
                 <div className="col-sm-12">
@@ -67,6 +72,9 @@ class Login extends Component {
                         </div>
                     </div>
                 </form>
+
+                {alert}
+
             </div>
         )
     }
@@ -74,7 +82,8 @@ class Login extends Component {
 
 function mapState(state) {
     return {
-        loginSuccess: state.login.success
+        loginSuccess: state.login.success,
+        loginError: state.login.error
     }
 }
 
