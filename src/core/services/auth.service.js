@@ -1,5 +1,5 @@
 function getHost() {
-    if (window.location.href == 'http://localhost:3000/') {
+    if (window.location.href === 'http://localhost:3000/') {
         return 'http://localhost:8080/'
     } else {
         return 'https://fiapwaterclock.herokuapp.com/'
