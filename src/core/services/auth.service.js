@@ -4,7 +4,7 @@ async function register(firstName, lastName, email, password, matchingPassword) 
     const response = await fetch(host + 'api/user', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json; charset=UTF-8'
         },
         body: JSON.stringify({
             firstName: firstName,
