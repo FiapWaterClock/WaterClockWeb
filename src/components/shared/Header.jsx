@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom'
 
 export default class Header extends Component {
     render() {
-        const {loggedIn, onLogout} = this.props
+        const {loggedIn, isAdmin, onLogout} = this.props
 
         return (
             <div className="container-fluid">
-                <ul className="nav navbar-inverse bg-primary">
+                <ul className="nav navbar-inverse">
                     <li className="nav-item">
                         <NavLink exact to="/" className="navbar-brand nav-link" activeClassName="active">
                             Home
@@ -26,10 +26,22 @@ export default class Header extends Component {
                         </NavLink>
                     </li>}
 
+                    {loggedIn && isAdmin && <li className="nav-item">
+                        <NavLink className="nav-link" to="/admin/users" activeClassName="active">
+                            Users
+                        </NavLink>
+                    </li>}
+
+                    {loggedIn && isAdmin && <li className="nav-item">
+                        <NavLink className="nav-link" to="/admin/clocks" activeClassName="active">
+                            Clocks
+                        </NavLink>
+                    </li>}
+
                     {loggedIn && <li className="nav-item">
-                        <a href="javascript:void(0)" className="nav-link" onClick={onLogout}>
+                        <NavLink className="nav-link" to="/login" activeClassName="active" onClick={onLogout}>
                             Logout
-                        </a>
+                        </NavLink>
                     </li>}
                 </ul>
             </div>
