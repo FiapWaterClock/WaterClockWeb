@@ -10,11 +10,11 @@ body {
 }
 
 .nav a:hover {
-    color: aquamarine;
+    color: #FFA726 ;
 }
 
 .nav a.active {
-    color: aquamarine;
+    color: #FFA726 ;
 }
 
 /*Bootstrap overriding*/
@@ -25,24 +25,24 @@ body {
 /*Custom classes*/
 .text-format {
     font-size: 1em;
-    color: darkgrey;
+    color: #00A7BD  ;
     font-family: "Helvetica", sans-serif;
 }
 
 .text-format-large {
     font-size: 2em;
-    color: darkgrey;
+    color: #00A7BD  ;
     font-family: "Helvetica", sans-serif;
 }
 
 .navbar-inverse {
-    background: royalblue;
+    background: #00838F ;
 }
 
 .footer {
-    background: royalblue;
+    background: #00838F ;
     padding: 8px;
-    color: white;
+    color: #FFA726 ;
     text-align: center;
     bottom: 0;
     position: fixed;

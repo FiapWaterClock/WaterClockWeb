@@ -98,7 +98,7 @@ class Register extends Component {
                     <div className="form-group">
                         <div className="row">
                             <div className="col-sm-4 offset-4">
-                                <input className="btn btn-block btn-primary" type="submit" value="Register"/>
+                                <input className="btn btn-block btn-primary" style={{backgroundColor: "#00A7BD", border: 0}} type="submit" value="Register"/>
                             </div>
                         </div>
                     </div>
