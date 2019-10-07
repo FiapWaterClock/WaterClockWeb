@@ -3,7 +3,7 @@ import { USER_PROFILE_SUCCESS, USER_PROFILE_ERROR } from '../actions/userActionT
 export function userProfileReducer(state = {success: false}, action) {
     switch (action.type) {
         case USER_PROFILE_SUCCESS:
-            return Object.assign({}, state, {success: true, user: action.user})
+            return Object.assign({}, state, {success: true, user: action.user, error: null})
         case USER_PROFILE_ERROR:
             return Object.assign({}, state, {success: false, user: null, error: action.error})
         default:
