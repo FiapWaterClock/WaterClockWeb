@@ -23,7 +23,6 @@ export function loginReducer(state = {success: false}, action) {
             return Object.assign({}, state, {success: false, error: action.error})
         case REGISTER_SUCCESS:
             return Object.assign({}, state, {success: false, error: null})
-        case REGISTER_ERROR:
         case REDIRECTED:
             return Object.assign({}, state, {success: false})
         default:

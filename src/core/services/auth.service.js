@@ -1,15 +1,7 @@
-function getHost() {
-    if (window.location.href.includes('http://localhost:3000/')) {
-        return 'http://localhost:8080/'
-    } else {
-        return 'https://fiapwaterclock.herokuapp.com/'
-    }
-}
-
-let host = getHost();
+import {getHost} from './config.service'
 
 async function register(firstName, lastName, email, password, matchingPassword) {
-    const response = await fetch(host + 'api/user', {
+    const response = await fetch(getHost() + 'api/user', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'
@@ -40,7 +32,7 @@ function basicAuthHeader(clientId, clientSecret) {
 }
 
 async function login(email, password) {
-    const response = await fetch(host + 'oauth/token', {
+    const response = await fetch(getHost() + 'oauth/token', {
         method: 'POST',
         headers: {
             'Authorization': basicAuthHeader('testjwtclientid', 'XY7kmzoNzl100'),

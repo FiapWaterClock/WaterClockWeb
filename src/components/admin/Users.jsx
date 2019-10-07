@@ -1,24 +1,47 @@
 import React, { Component } from 'react'
+import {connect} from "react-redux";
+import {adminUsersAction} from "../../core/store/actions/adminActions";
 
-export default class AdminUsersPage extends Component {
+class AdminUsersPage extends Component {
+
+    componentDidMount() {
+        this.props.getUsers();
+    }
+
     render() {
+
+        let alert = "";
+        if (this.props.error) {
+            alert = <div className="alert alert-danger" role="alert">{this.props.error}</div>
+        }
         return (
             <div>
-                <div className="row">
-                    <div className="col-sm-12">
-                        <div className="text-center">
-                            <h1 className="text-format-large">Admin Users</h1>
+                {this.props.users.map((user) => (
+                    <div key={user.id} className="row">
+                        <div className="col-sm-12">
+                            <div className="text-center">
+                                {user.firstName} {user.lastName} {user.email}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-sm-12">
-                        <div className="text-center">
-                            <p className="text-format">WaterClock</p>
-                        </div>
-                    </div>
-                </div>
+                ))}
+                {alert}
             </div>
         )
     }
 }
+
+function mapState(state) {
+    return {
+        users: state.adminUsers.users || [],
+        error: state.adminUsers.error
+    }
+}
+
+function mapDispatch(dispatch) {
+    return {
+        getUsers: () => dispatch(adminUsersAction())
+    }
+}
+
+export default connect(mapState, mapDispatch)(AdminUsersPage)
