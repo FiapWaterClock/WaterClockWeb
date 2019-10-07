@@ -26,6 +26,12 @@ export default class Header extends Component {
                         </NavLink>
                     </li>}
 
+                    {loggedIn && !isAdmin && <li className="nav-item">
+                        <NavLink className="nav-link" to="/user/profile" activeClassName="active">
+                            Profile
+                        </NavLink>
+                    </li>}
+
                     {loggedIn && isAdmin && <li className="nav-item">
                         <NavLink className="nav-link" to="/admin/users" activeClassName="active">
                             Users

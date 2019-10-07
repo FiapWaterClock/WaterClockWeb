@@ -1,4 +1,4 @@
-import {REGISTER_SUCCESS, REGISTER_ERROR, LOGIN_SUCCESS, LOGIN_ERROR, REDIRECTED} from '../actions/authActionTypes'
+import {REGISTER_SUCCESS, REGISTER_ERROR, LOGIN_SUCCESS, LOGIN_ERROR, REDIRECTED} from './authActionTypes'
 import {login, register} from '../../services/auth.service'
 
 function registerSuccess() {

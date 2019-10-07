@@ -6,6 +6,7 @@ import Login from './components/auth/Login'
 import Home from './components/Home'
 import AdminUsers from './components/admin/Users'
 import AdminClocks from './components/admin/Clocks'
+import UserProfile from './components/user/Profile'
 import { connect } from 'react-redux'
 import { logoutAction } from './core/store/actions/authActions'
 import Footer from "./components/shared/Footer"
@@ -41,6 +42,7 @@ class App extends Component {
                         <Route exact path="/" component={Home}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/register" component={Register}/>
+                        <Route path="/user/profile" component={UserProfile}/>
                         <Route path="/admin/users" component={AdminUsers}/>
                         <Route path="/admin/clocks" component={AdminClocks}/>
                         <Route component={NothingFound}/>
