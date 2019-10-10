@@ -5,9 +5,7 @@ export default class Footer extends Component {
         return (
             <footer className="footer">
                 <div className="container">
-                    <div>S2</div>
                     <div>WaterClock</div>
-                    <div>S2</div>
                 </div>
             </footer>
         )

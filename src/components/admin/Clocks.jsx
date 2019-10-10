@@ -42,7 +42,6 @@ class AdminClocksPage extends Component {
 }
 
 function mapState(state) {
-    console.log(state);
     return {
         clocks: state.adminClocks.clocks || [],
         error: state.adminClocks.error

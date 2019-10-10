@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Input from '../shared/Input'
 import {connect} from 'react-redux'
-import {adminClockCreateAction} from "../../core/store/actions/adminActions";
+import {adminClockCreateAction, adminClocksAction} from "../../core/store/actions/adminActions";
 import {redirect} from "../../core/store/actions/authActions";
 
 class ClockForm extends Component {
@@ -30,7 +30,7 @@ class ClockForm extends Component {
 
     componentWillReceiveProps(newProps) {
         if (newProps.adminClockCreateSuccess) {
-            this.props.redirect();
+            this.props.getClocks();
         }
     }
 
@@ -77,6 +77,7 @@ class ClockForm extends Component {
 
 function mapDispatch(dispatch) {
     return {
+        getClocks: () => dispatch(adminClocksAction()),
         createClock: (clock) => dispatch(adminClockCreateAction(clock)),
         redirect: () => dispatch(redirect("/clocks"))
     }
