@@ -42,7 +42,7 @@ class Login extends Component {
         return (     
             
             <div style={{margin:"0 auto", marginTop:"10px"}}>
-                <img src={logo} height="200px" width="190px" className="mx-auto d-block"/>
+                <img src={logo} height="200px" width="190px" className="mx-auto d-block" alt="WaterClockLogo"/>
             
             <div className="card col-md-6" style={{margin:"0 auto", marginTop:"20px", padding:"40px"}}>               
                 

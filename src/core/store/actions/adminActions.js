@@ -1,5 +1,5 @@
-import {ADMIN_USERS_SUCCESS, ADMIN_USERS_ERROR, ADMIN_CLOCKS_SUCCESS, ADMIN_CLOCKS_ERROR} from './adminActionTypes'
-import {getUsers, getClocks} from '../../services/admin.service'
+import {ADMIN_USERS_SUCCESS, ADMIN_USERS_ERROR, ADMIN_CLOCKS_SUCCESS, ADMIN_CLOCKS_ERROR, ADMIN_CLOCK_CREATE_ERROR, ADMIN_CLOCK_CREATE_SUCCESS} from './adminActionTypes'
+import {getUsers, getClocks, createClock} from '../../services/admin.service'
 
 function adminUsersError(error) {
     return {
@@ -63,4 +63,31 @@ function adminClocksAction() {
     }
 }
 
-export {adminUsersAction, adminClocksAction}
+function adminClockCreateError(result) {
+    return {
+        type: ADMIN_CLOCK_CREATE_ERROR,
+        error: result
+    }
+}
+
+function adminClockCreateSuccess() {
+    return {
+        type: ADMIN_CLOCK_CREATE_SUCCESS
+    }
+}
+
+function adminClockCreateAction(clock) {
+    return (dispatch) => {
+        return createClock(localStorage.getItem('authToken'), clock)
+            .then(response => {
+                if (response.status() === 201) {
+                    dispatch(adminClockCreateSuccess())
+                } else {
+                    dispatch(adminClockCreateError(response.json()))
+                }
+            })
+    }
+}
+
+
+export {adminUsersAction, adminClocksAction, adminClockCreateAction}

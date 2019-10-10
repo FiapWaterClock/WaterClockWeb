@@ -8,7 +8,7 @@ export default class HomePage extends Component {
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="text-center">
-                            <img src={logo} height="200px" width="190px" className="mx-auto d-block"/>
+                            <img src={logo} height="200px" width="190px" className="mx-auto d-block" alt="WaterClockLogo"/>
                         </div>
                     </div>
                 </div>
