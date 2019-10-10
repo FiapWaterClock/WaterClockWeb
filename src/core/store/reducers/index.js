@@ -1,5 +1,5 @@
 import { registerReducer, loginReducer } from './authReducer'
-import { adminUsersReducer, adminClocksReducer, adminClocksFormReducer} from './adminReducer'
+import {adminUsersReducer, adminClocksReducer, adminClocksFormReducer, adminClockUserFormReducer} from './adminReducer'
 import { userProfileReducer } from './userReducer'
 
 export default {
@@ -8,5 +8,6 @@ export default {
     adminUsers: adminUsersReducer,
     adminClocks: adminClocksReducer,
     userProfile: userProfileReducer,
-    createClock: adminClocksFormReducer
+    createClock: adminClocksFormReducer,
+    linkClock: adminClockUserFormReducer
 }

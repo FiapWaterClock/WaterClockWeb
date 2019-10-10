@@ -1,5 +1,5 @@
-import {ADMIN_USERS_SUCCESS, ADMIN_USERS_ERROR, ADMIN_CLOCKS_SUCCESS, ADMIN_CLOCKS_ERROR, ADMIN_CLOCK_CREATE_ERROR, ADMIN_CLOCK_CREATE_SUCCESS} from './adminActionTypes'
-import {getUsers, getClocks, createClock} from '../../services/admin.service'
+import {ADMIN_LINK_CLOCK_SUCCESS, ADMIN_LINK_CLOCK_ERROR, ADMIN_USERS_SUCCESS, ADMIN_USERS_ERROR, ADMIN_CLOCKS_SUCCESS, ADMIN_CLOCKS_ERROR, ADMIN_CLOCK_CREATE_ERROR, ADMIN_CLOCK_CREATE_SUCCESS} from './adminActionTypes'
+import {getUsers, getClocks, createClock, linkClock} from '../../services/admin.service'
 
 function adminUsersError(error) {
     return {
@@ -89,5 +89,31 @@ function adminClockCreateAction(clock) {
     }
 }
 
+function adminLinkClockError() {
+    return {
+        type: ADMIN_LINK_CLOCK_ERROR,
+        error: "Falha"
+    }
+}
 
-export {adminUsersAction, adminClocksAction, adminClockCreateAction}
+function adminLinkClockSuccess() {
+    return {
+        type: ADMIN_LINK_CLOCK_SUCCESS
+    }
+}
+
+function adminLinkClockAction(ids) {
+    return (dispatch) => {
+        return linkClock(localStorage.getItem('authToken'), ids)
+            .then(response => {
+                if (response.status === 201) {
+                    dispatch(adminLinkClockSuccess())
+                } else {
+                    dispatch(adminLinkClockError())
+                }
+            })
+    }
+}
+
+
+export {adminUsersAction, adminClocksAction, adminClockCreateAction, adminLinkClockAction}
