@@ -44,20 +44,23 @@ class Register extends Component {
         }
 
         return (
-            <div>
+            
+            <div className="card col-md-6" style={{margin:"0 auto", marginTop:"80px", padding:"40px"}}>                
+
+                <form className="form-control-sm col-sm-10" style={{margin:"0 auto"}} onSubmit={this.onSubmitHandler}>
+
                 <div className="col-sm-12">
                     <div className="text-center">
-                        <h1 className="text-format-large">Register</h1>
+                        <h1 className="text-format-large">Cadastro</h1>
                     </div>
                 </div>
-
-                <form onSubmit={this.onSubmitHandler}>
+                
                     <div className="form-group">
                         <Input
                             name="firstName"
                             value={this.state.firstName}
                             onChange={this.onChangeHandler}
-                            label="First Name"
+                            label="Nome"
                         />
                     </div>
                     <div className="form-group">
@@ -65,7 +68,7 @@ class Register extends Component {
                             name="lastName"
                             value={this.state.lastName}
                             onChange={this.onChangeHandler}
-                            label="Last Name"
+                            label="Sobrenome"
                         />
                     </div>
                     <div className="form-group">
@@ -82,7 +85,7 @@ class Register extends Component {
                             type="password"
                             value={this.state.password}
                             onChange={this.onChangeHandler}
-                            label="Password"
+                            label="Senha"
                         />
                     </div>
                     <div className="form-group">
@@ -91,14 +94,14 @@ class Register extends Component {
                             type="password"
                             value={this.state.matchingPassword}
                             onChange={this.onChangeHandler}
-                            label="Repeat password"
+                            label="Confirme a senha"
                         />
                     </div>
 
                     <div className="form-group">
                         <div className="row">
-                            <div className="col-sm-4 offset-4">
-                                <input className="btn btn-block btn-primary" style={{backgroundColor: "#00A7BD", border: 0}} type="submit" value="Register"/>
+                            <div className="col-sm-6 offset-3">
+                                <input className="btn btn-block btn-primary" style={{backgroundColor: "#00A7BD", border: 0}} type="submit" value="Cadastrar"/>
                             </div>
                         </div>
                     </div>
