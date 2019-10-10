@@ -22,7 +22,7 @@ export function adminUsersReducer(state = {success: false}, action) {
 export function adminClocksReducer(state = {success: false}, action) {
     switch (action.type) {
         case ADMIN_CLOCKS_SUCCESS:
-            return Object.assign({}, state, {success: true, clocks: action.clocks, error: null})
+            return Object.assign({}, state, {success: true, clocks: action.clocks.sort((a, b) => a.id - b.id), error: null})
         case ADMIN_CLOCKS_ERROR:
             return Object.assign({}, state, {success: false, clocks: null, error: action.error})
         default:
@@ -49,6 +49,8 @@ export function adminClockUserFormReducer(state = {success: false, error: null},
             return Object.assign({}, state, {success: true, error: null})
         case ADMIN_LINK_CLOCK_ERROR:
             return Object.assign({}, state, {success: false, error: action.error})
+        case ADMIN_CLOCKS_SUCCESS:
+            return Object.assign({}, state, {success: false, error: null})
         default:
             return state
     }

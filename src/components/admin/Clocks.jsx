@@ -22,9 +22,10 @@ class AdminClocksPage extends Component {
                 <table className="table table-bordered text-center">
                     <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Serial number</th>
-                        <th scope="col">Instalation date</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Número de série</th>
+                        <th scope="col">Data instalação</th>
+                        <th scope="col">Id usuário</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,6 +34,7 @@ class AdminClocksPage extends Component {
                             <th scope="row">{clock.id}</th>
                             <td>{clock.serial_number}</td>
                             <td>{clock.installation_date}</td>
+                            <td>{clock.user}</td>
                         </tr>
                     ))}
                     </tbody>

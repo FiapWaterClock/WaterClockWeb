@@ -19,7 +19,7 @@ async function getClocks(authToken) {
             'Content-Type': 'application/json; charset=UTF-8'
         }
     });
-    return await response.json()
+    return await response.json();
 }
 
 async function createClock(authToken, clock) {
