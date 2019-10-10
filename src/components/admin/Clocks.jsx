@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {adminClocksAction} from "../../core/store/actions/adminActions";
 import {connect} from "react-redux";
 import ClockForm from "./ClockForm";
+import ClockUserForm from "./ClockUserForm";
 
 class AdminClocksPage extends Component {
 
@@ -17,6 +18,7 @@ class AdminClocksPage extends Component {
         return (
             <div>
                 <ClockForm/>
+                <ClockUserForm/>
                 <table className="table table-bordered text-center">
                     <thead>
                     <tr>

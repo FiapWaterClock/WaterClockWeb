@@ -38,4 +38,16 @@ async function createClock(authToken, clock) {
     return await response
 }
 
-export {getUsers, getClocks, createClock}
+async function linkClock(authToken, ids) {
+    const response = await fetch(getHost() + 'api/user/clock_to_user', {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + authToken,
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify(ids)});
+
+    return await response
+}
+
+export {getUsers, getClocks, createClock, linkClock}
