@@ -49,7 +49,7 @@ class ClockForm extends Component {
             <div>
                 <div className="col-sm-12">
                     <div className="text-center">
-                        <h1 className="text-format-large">Clock Register</h1>
+                        <h1 className="text-format-large">Registrar relógio</h1>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@ class ClockForm extends Component {
                             name="serial_number"
                             value={this.state.serial_number}
                             onChange={this.onChangeHandler}
-                            label="Serial number"
+                            label="Número de série"
                         />
                     </div>
                     <div className="form-group">
@@ -67,14 +67,14 @@ class ClockForm extends Component {
                             name="installation_date"
                             value={this.state.installation_date}
                             onChange={this.onChangeHandler}
-                            label="Installation date"
+                            label="Data de instalação"
                         />
                     </div>
 
                     <div className="form-group">
                         <div className="row">
                             <div className="col-sm-4 offset-4">
-                                <input className="btn btn-block btn-primary" type="submit" value="Register"/>
+                                <input className="btn btn-block btn-primary" type="submit" value="Enviar"/>
                             </div>
                         </div>
                     </div>

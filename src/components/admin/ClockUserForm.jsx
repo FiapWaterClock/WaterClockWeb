@@ -49,7 +49,7 @@ class ClockUserForm extends Component {
             <div>
                 <div className="col-sm-12">
                     <div className="text-center">
-                        <h1 className="text-format-large">Link Clock</h1>
+                        <h1 className="text-format-large">Vincular relógio e usuário</h1>
                     </div>
                 </div>
 

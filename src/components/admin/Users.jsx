@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {connect} from "react-redux";
 import {adminUsersAction} from "../../core/store/actions/adminActions";
 
@@ -6,6 +6,7 @@ class AdminUsersPage extends Component {
 
     componentDidMount() {
         this.props.getUsers();
+        console.log(this.props);
     }
 
     render() {
@@ -16,15 +17,28 @@ class AdminUsersPage extends Component {
         }
         return (
             <div>
+                <table className="table table-bordered text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Número de série</th>
+                        <th scope="col">Data instalação</th>
+                        <th scope="col">Relógios</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                 {this.props.users.map((user) => (
-                    <div key={user.id} className="row">
-                        <div className="col-sm-12">
-                            <div className="text-center">
-                                {user.firstName} {user.lastName} {user.email}
-                            </div>
-                        </div>
-                    </div>
+                    <tr key={user.id} >
+                        <th scope="row">{user.id}</th>
+                        <td>{user.firstName} {user.lastName}</td>
+                        <td>{user.email}</td>
+                        <td>
+                            {user.clocks}
+                        </td>
+                    </tr>
                 ))}
+                    </tbody>
+                </table>
                 {alert}
             </div>
         )
