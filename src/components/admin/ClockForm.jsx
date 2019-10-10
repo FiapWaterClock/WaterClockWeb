@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import Input from '../shared/Input'
 import {connect} from 'react-redux'
 import {adminClockCreateAction, adminClocksAction} from "../../core/store/actions/adminActions";
-import {redirect} from "../../core/store/actions/authActions";
 
 class ClockForm extends Component {
     constructor(props) {
@@ -23,18 +22,29 @@ class ClockForm extends Component {
 
     onSubmitHandler(e) {
         e.preventDefault()
-
-        this.props.createClock({serial_number: this.state.serial_number, installation_date: this.state.installation_date})
+        this.props.createClock({
+            serial_number: this.state.serial_number,
+            installation_date: this.state.installation_date
+        });
     }
-
 
     componentWillReceiveProps(newProps) {
         if (newProps.adminClockCreateSuccess) {
             this.props.getClocks();
+            this.setState({
+                serial_number: '',
+                installation_date: ''
+            });
         }
     }
 
     render() {
+        const adminClockCreateError = this.props.adminClockCreateError;
+        let alert = "";
+        if (adminClockCreateError && this.state.serial_number) {
+            alert = <div className="alert alert-danger" role="alert">{adminClockCreateError}</div>
+        }
+
         return (
             <div>
                 <div className="col-sm-12">
@@ -57,18 +67,19 @@ class ClockForm extends Component {
                             name="installation_date"
                             value={this.state.installation_date}
                             onChange={this.onChangeHandler}
-                            label="Instalation date"
+                            label="Installation date"
                         />
                     </div>
 
                     <div className="form-group">
                         <div className="row">
                             <div className="col-sm-4 offset-4">
-                                <input className="btn btn-block btn-primary" style={{backgroundColor: "#00A7BD", border: 0}} type="submit" value="Register"/>
+                                <input className="btn btn-block btn-primary" type="submit" value="Register"/>
                             </div>
                         </div>
                     </div>
                 </form>
+                {alert}
             </div>
         )
     }
@@ -78,8 +89,7 @@ class ClockForm extends Component {
 function mapDispatch(dispatch) {
     return {
         getClocks: () => dispatch(adminClocksAction()),
-        createClock: (clock) => dispatch(adminClockCreateAction(clock)),
-        redirect: () => dispatch(redirect("/clocks"))
+        createClock: (clock) => dispatch(adminClockCreateAction(clock))
     }
 }
 
