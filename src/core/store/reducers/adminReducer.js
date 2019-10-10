@@ -28,6 +28,8 @@ export function adminClocksFormReducer(state = {success: false, error: null}, ac
             return Object.assign({}, state, {success: true, error: null})
         case ADMIN_CLOCK_CREATE_ERROR:
             return Object.assign({}, state, {success: false, error: action.error})
+        case ADMIN_CLOCKS_SUCCESS:
+            return Object.assign({}, state, {success: false, error: null})
         default:
             return state
     }
