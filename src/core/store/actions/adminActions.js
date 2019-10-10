@@ -80,7 +80,7 @@ function adminClockCreateAction(clock) {
     return (dispatch) => {
         return createClock(localStorage.getItem('authToken'), clock)
             .then(response => {
-                if (response.status() === 201) {
+                if (response.status === 201) {
                     dispatch(adminClockCreateSuccess())
                 } else {
                     dispatch(adminClockCreateError(response.json()))

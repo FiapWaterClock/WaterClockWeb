@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Input from '../shared/Input'
 import {connect} from 'react-redux'
 import {adminClockCreateAction} from "../../core/store/actions/adminActions";
+import {redirect} from "../../core/store/actions/authActions";
 
 class ClockForm extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class ClockForm extends Component {
 
         this.state = {
             serial_number: '',
-            intallation_date: ''
+            installation_date: ''
         }
 
         this.onChangeHandler = this.onChangeHandler.bind(this)
@@ -23,13 +24,13 @@ class ClockForm extends Component {
     onSubmitHandler(e) {
         e.preventDefault()
 
-        this.props.createClock(this.state.serial_number, this.state.intallation_date)
+        this.props.createClock({serial_number: this.state.serial_number, installation_date: this.state.installation_date})
     }
 
 
     componentWillReceiveProps(newProps) {
         if (newProps.adminClockCreateSuccess) {
-            this.props.redirect("/clocks");
+            this.props.redirect();
         }
     }
 
@@ -45,7 +46,7 @@ class ClockForm extends Component {
                 <form onSubmit={this.onSubmitHandler}>
                     <div className="form-group">
                         <Input
-                            name="Serial number"
+                            name="serial_number"
                             value={this.state.serial_number}
                             onChange={this.onChangeHandler}
                             label="Serial number"
@@ -53,8 +54,8 @@ class ClockForm extends Component {
                     </div>
                     <div className="form-group">
                         <Input
-                            name="Intalation date"
-                            value={this.state.intallation_date}
+                            name="installation_date"
+                            value={this.state.installation_date}
                             onChange={this.onChangeHandler}
                             label="Instalation date"
                         />
@@ -76,12 +77,12 @@ class ClockForm extends Component {
 
 function mapDispatch(dispatch) {
     return {
-        createClock: (clock) => dispatch(adminClockCreateAction(clock))
+        createClock: (clock) => dispatch(adminClockCreateAction(clock)),
+        redirect: () => dispatch(redirect("/clocks"))
     }
 }
 
 function mapState(state) {
-    console.log(state)
     return {
         adminClockCreateSuccess: state.createClock.success,
         adminClockCreateError: state.createClock.error

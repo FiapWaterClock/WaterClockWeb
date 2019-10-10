@@ -32,7 +32,7 @@ async function createClock(authToken, clock) {
         body: JSON.stringify({
             "activate" : true,
             "serial_number": clock.serial_number ,
-            "intallation_date": clock.intallation_date
+            "installation_date": clock.installation_date
         })});
 
     return await response
