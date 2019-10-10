@@ -2,7 +2,6 @@ import {USER_PROFILE_SUCCESS, USER_PROFILE_ERROR} from './userActionTypes'
 import {getUser} from '../../services/user.service'
 
 function userProfileError(error) {
-    console.log(error);
     return {
         type: USER_PROFILE_ERROR,
         error: error.error_description

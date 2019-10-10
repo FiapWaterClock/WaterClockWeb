@@ -10,7 +10,7 @@ export default class Header extends Component {
                 <ul className="nav navbar-inverse">
                     <li className="nav-item">
                         <NavLink exact to="/" className="navbar-brand nav-link" activeClassName="active">
-                            Home
+                            Início
                         </NavLink>
                     </li>
 
@@ -22,7 +22,7 @@ export default class Header extends Component {
 
                     {!loggedIn && <li className="nav-item">
                         <NavLink className="nav-link" to="/register" activeClassName="active">
-                            Register
+                            Cadastro
                         </NavLink>
                     </li>}
 

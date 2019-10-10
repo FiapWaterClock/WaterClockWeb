@@ -22,4 +22,20 @@ async function getClocks(authToken) {
     return await response.json()
 }
 
-export {getUsers, getClocks}
+async function createClock(authToken, clock) {
+    const response = await fetch(getHost() + 'api/clock', {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + authToken,
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: JSON.stringify({
+            "activate" : true,
+            "serial_number": clock.serial_number ,
+            "installation_date": clock.installation_date
+        })});
+
+    return await response
+}
+
+export {getUsers, getClocks, createClock}

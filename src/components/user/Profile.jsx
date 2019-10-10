@@ -30,7 +30,6 @@ class UserProfilePage extends Component {
 }
 
 function mapState(state) {
-    console.log(state);
     return {
         user: state.userProfile.user || {},
         error: state.userProfile.error || null
