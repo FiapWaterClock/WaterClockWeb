@@ -48,7 +48,6 @@ class App extends Component {
                         <Route component={NothingFound}/>
                     </Switch>
                 </div>
-                <Footer/>
             </div>
         )
     }
