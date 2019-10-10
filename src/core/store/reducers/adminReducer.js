@@ -22,7 +22,7 @@ export function adminClocksReducer(state = {success: false}, action) {
     }
 }
 
-export function adminClocksFormReducer(state = {success: false}, action) {
+export function adminClocksFormReducer(state = {success: false, error: null}, action) {
     switch (action.type) {
         case ADMIN_CLOCK_CREATE_SUCCESS:
             return Object.assign({}, state, {success: true, error: null})

@@ -63,10 +63,10 @@ function adminClocksAction() {
     }
 }
 
-function adminClockCreateError(result) {
+function adminClockCreateError() {
     return {
         type: ADMIN_CLOCK_CREATE_ERROR,
-        error: result
+        error: "Falha"
     }
 }
 
@@ -83,7 +83,7 @@ function adminClockCreateAction(clock) {
                 if (response.status === 201) {
                     dispatch(adminClockCreateSuccess())
                 } else {
-                    dispatch(adminClockCreateError(response.json()))
+                    dispatch(adminClockCreateError())
                 }
             })
     }

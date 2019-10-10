@@ -74,7 +74,7 @@ class Login extends Component {
                     <div className="form-group">
                         <div className="row">
                             <div className="col-sm-6 offset-3">
-                                <input className="btn btn-block btn-primary" style={{backgroundColor: "#00A7BD", border: 0, marginTop:"30px"}} type="submit" value="Login"/>
+                                <input className="btn btn-block btn-primary" type="submit" value="Login"/>
                             </div>
                         </div>
                     </div>
