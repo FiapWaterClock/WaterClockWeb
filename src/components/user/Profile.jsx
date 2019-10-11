@@ -19,7 +19,9 @@ class UserProfilePage extends Component {
                 <div key={this.props.user.id} className="row">
                     <div className="col-sm-12">
                         <div className="text-center">
-                            {this.props.user.firstName} {this.props.user.lastName} {this.props.user.email}
+                          <h1>Olá {this.props.user.firstName},</h1>
+                            <h2>Em breve entraremos em contato, por intermédio do email {this.props.user.email} para agendarmos o ligamento do seu WaterClock
+                            </h2>
                         </div>
                     </div>
                 </div>

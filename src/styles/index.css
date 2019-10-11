@@ -37,6 +37,7 @@ body {
 
 .navbar-inverse {
     background: #00838F ;
+    margin-bottom: 30px;
 }
 
 .footer {
@@ -47,6 +48,10 @@ body {
     bottom: 0;
     position: fixed;
     width: 100%;
+}
+
+.formclock {
+  background-color: white;
 }
 
 .btn {

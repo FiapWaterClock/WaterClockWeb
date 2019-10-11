@@ -22,13 +22,13 @@ export default class Header extends Component {
 
                     {!loggedIn && <li className="nav-item">
                         <NavLink className="nav-link" to="/register" activeClassName="active">
-                            Cadastro
+                            Solicite seu WaterCLock
                         </NavLink>
                     </li>}
 
                     {loggedIn && !isAdmin && <li className="nav-item">
                         <NavLink className="nav-link" to="/user/profile" activeClassName="active">
-                            Profile
+                            Acompanhe sua solicitação
                         </NavLink>
                     </li>}
 

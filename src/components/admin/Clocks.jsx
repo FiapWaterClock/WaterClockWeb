@@ -17,30 +17,39 @@ class AdminClocksPage extends Component {
         }
         return (
             <div>
-                <ClockForm/>
-                <ClockUserForm/>
-                <table className="table table-bordered text-center">
-                    <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Número de série</th>
-                        <th scope="col">Data instalação</th>
-                        <th scope="col">Id usuário</th>
+              <div class="row formclock">
+              <div class="col-6">
+              <ClockForm/>
+              </div>
+              <div class="col-6">
+              <ClockUserForm/>
+              </div>
+              </div>
+                <div class="text-center">
+                <h1 className="text-format-large">Relação relógio usuário</h1>
+                </div>
+            <table className="table table-bordered text-center">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Número de série</th>
+                    <th scope="col">Data instalação</th>
+                    <th scope="col">Id usuário</th>
+                </tr>
+                </thead>
+                <tbody>
+                {this.props.clocks.map((clock) => (
+                    <tr key={clock.id}>
+                        <th scope="row">{clock.id}</th>
+                        <td>{clock.serial_number}</td>
+                        <td>{clock.installation_date}</td>
+                        <td>{clock.user}</td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    {this.props.clocks.map((clock) => (
-                        <tr key={clock.id}>
-                            <th scope="row">{clock.id}</th>
-                            <td>{clock.serial_number}</td>
-                            <td>{clock.installation_date}</td>
-                            <td>{clock.user}</td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-                {alert}
-            </div>
+                ))}
+                </tbody>
+            </table>
+            {alert}
+        </div>
         )
     }
 }

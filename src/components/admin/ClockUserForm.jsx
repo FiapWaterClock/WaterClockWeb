@@ -47,12 +47,7 @@ class ClockUserForm extends Component {
 
         return (
             <div>
-                <div className="col-sm-12">
-                    <div className="text-center">
-                        <h1 className="text-format-large">Vincular relógio e usuário</h1>
-                    </div>
-                </div>
-
+                <h1 className="text-format-large">Vincular relógio e usuário</h1>
                 <form onSubmit={this.onSubmitHandler}>
                     <div className="form-group">
                         <Input
@@ -70,13 +65,8 @@ class ClockUserForm extends Component {
                             label="Clock id"
                         />
                     </div>
-
                     <div className="form-group">
-                        <div className="row">
-                            <div className="col-sm-4 offset-4">
-                                <input className="btn btn-block btn-primary" type="submit" value="Link"/>
-                            </div>
-                        </div>
+                      <input className="btn btn-block btn-primary" type="submit" value="Linkar"/>
                     </div>
                 </form>
                 {alert}

@@ -47,7 +47,8 @@ class Register extends Component {
             <div>
                 <div className="col-sm-12">
                     <div className="text-center">
-                        <h1 className="text-format-large">Register</h1>
+                        <h1 className="text-format-large">Solicitação de relólgio</h1>
+                        <h4> Para solicitar nossos serviços e acompanhar seus gastos de água em tempo real, basta preencher o formulário abaixo: </h4>
                     </div>
                 </div>
 
@@ -57,7 +58,7 @@ class Register extends Component {
                             name="firstName"
                             value={this.state.firstName}
                             onChange={this.onChangeHandler}
-                            label="First Name"
+                            label="Primeiro nome"
                         />
                     </div>
                     <div className="form-group">
@@ -65,7 +66,7 @@ class Register extends Component {
                             name="lastName"
                             value={this.state.lastName}
                             onChange={this.onChangeHandler}
-                            label="Last Name"
+                            label="Sobrenome"
                         />
                     </div>
                     <div className="form-group">
@@ -91,14 +92,14 @@ class Register extends Component {
                             type="password"
                             value={this.state.matchingPassword}
                             onChange={this.onChangeHandler}
-                            label="Repeat password"
+                            label="Confirme sua password"
                         />
                     </div>
 
                     <div className="form-group">
                         <div className="row">
                             <div className="col-sm-4 offset-4">
-                                <input className="btn btn-block btn-primary" style={{backgroundColor: "#00A7BD", border: 0}} type="submit" value="Register"/>
+                                <input className="btn btn-block btn-primary" style={{backgroundColor: "#00A7BD", border: 0}} type="submit" value="Enviar"/>
                             </div>
                         </div>
                     </div>
